@@ -1,6 +1,6 @@
 // ❗ The ✨ TASKS inside this component are NOT IN ORDER.
 // ❗ Check the README for the appropriate sequence to follow.
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const e = { // This is a dictionary of validation error messages.
   // username
@@ -18,10 +18,21 @@ const e = { // This is a dictionary of validation error messages.
   agreementOptions: 'agreement must be accepted',
 }
 
+const initialValues = () => ({
+  username: '',
+  favLanguage: '',
+  favFood: '',
+  agreement: ''
+})
+
 // ✨ TASK: BUILD YOUR FORM SCHEMA HERE
 // The schema should use the error messages contained in the object above.
 
 export default function App() {
+  const [formData, setFormData] = useState(initialValues)
+  const [valErrors, setValErrors] = useState(null)
+  const [activeSubmit, setActiveSubmit] = useState(null)
+  const [message, setMessage] = useState(null)
   // ✨ TASK: BUILD YOUR STATES HERE
   // You will need states to track (1) the form, (2) the validation errors,
   // (3) whether submit is disabled, (4) the success message from the server,
@@ -30,6 +41,9 @@ export default function App() {
   // ✨ TASK: BUILD YOUR EFFECT HERE
   // Whenever the state of the form changes, validate it against the schema
   // and update the state that tracks whether the form is submittable.
+  useEffect(() => {
+
+  }, [])
 
   const onChange = evt => {
     // ✨ TASK: IMPLEMENT YOUR INPUT CHANGE HANDLER
@@ -37,6 +51,7 @@ export default function App() {
     // whether the type of event target is "checkbox" and act accordingly.
     // At every change, you should validate the updated value and send the validation
     // error to the state where we track frontend validation errors.
+    
   }
 
   const onSubmit = evt => {
