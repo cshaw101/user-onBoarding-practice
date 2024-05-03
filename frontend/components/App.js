@@ -37,7 +37,6 @@ export default function App() {
   // You will need states to track (1) the form, (2) the validation errors,
   // (3) whether submit is disabled, (4) the success message from the server,
   // and (5) the failure message from the server.
-console.log(e.usernameRequired)
   // ✨ TASK: BUILD YOUR EFFECT HERE
   // Whenever the state of the form changes, validate it against the schema
   // and update the state that tracks whether the form is submittable.
@@ -73,7 +72,7 @@ console.log(e.usernameRequired)
         <div className="inputGroup">
           <label htmlFor="username">Username:</label>
           <input id="username" name="username" type="text" placeholder="Type Username" />
-          <div className="validation">username is required</div>
+          <div className="validation">username is required {message.usernameRequired} </div>
         </div>
 
         <div className="inputGroup">
@@ -88,7 +87,7 @@ console.log(e.usernameRequired)
               Rust
             </label>
           </fieldset>
-          <div className="validation">favLanguage is required</div>
+          <div className="validation">{message.favLanguageRequired}</div>
         </div>
 
         <div className="inputGroup">
@@ -99,7 +98,7 @@ console.log(e.usernameRequired)
             <option value="spaghetti">Spaghetti</option>
             <option value="broccoli">Broccoli</option>
           </select>
-          <div className="validation">favFood is required</div>
+          <div className="validation">{message.favFoodRequired}</div>
         </div>
 
         <div className="inputGroup">
@@ -107,7 +106,7 @@ console.log(e.usernameRequired)
             <input id="agreement" type="checkbox" name="agreement" />
             Agree to our terms
           </label>
-          <div className="validation">agreement is required</div>
+          <div className="validation">{message.agreementRequired}</div>
         </div>
 
         <div>
