@@ -32,12 +32,12 @@ export default function App() {
   const [formData, setFormData] = useState(initialValues)
   const [valErrors, setValErrors] = useState(null)
   const [activeSubmit, setActiveSubmit] = useState(null)
-  const [message, setMessage] = useState(null)
+  const [message, setMessage] = useState(e)
   // ✨ TASK: BUILD YOUR STATES HERE
   // You will need states to track (1) the form, (2) the validation errors,
   // (3) whether submit is disabled, (4) the success message from the server,
   // and (5) the failure message from the server.
-
+console.log(e.usernameRequired)
   // ✨ TASK: BUILD YOUR EFFECT HERE
   // Whenever the state of the form changes, validate it against the schema
   // and update the state that tracks whether the form is submittable.
