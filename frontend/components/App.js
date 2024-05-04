@@ -72,7 +72,7 @@ export default function App() {
         <div className="inputGroup">
           <label htmlFor="username">Username:</label>
           <input id="username" name="username" type="text" placeholder="Type Username" />
-          <div className="validation">username is required {message.usernameRequired} </div>
+          <div className="validation">{message.usernameRequired} </div>
         </div>
 
         <div className="inputGroup">
