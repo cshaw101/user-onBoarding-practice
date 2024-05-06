@@ -22,7 +22,7 @@ const initialValues = () => ({
   username: '',
   favLanguage: '',
   favFood: '',
-  agreement: ''
+  agreement: false
 })
 
 // ✨ TASK: BUILD YOUR FORM SCHEMA HERE
@@ -50,7 +50,12 @@ export default function App() {
     // whether the type of event target is "checkbox" and act accordingly.
     // At every change, you should validate the updated value and send the validation
     // error to the state where we track frontend validation errors.
-    
+    console.log('changing')
+  const { name, type, value, checked } = evt.target;
+
+  const updatedData = type === 'checkbox' ? checked: value;
+
+  setFormData({...formData, [name]: updatedData})
   }
 
   const onSubmit = evt => {
@@ -71,7 +76,7 @@ export default function App() {
 
         <div className="inputGroup">
           <label htmlFor="username">Username:</label>
-          <input id="username" name="username" type="text" placeholder="Type Username" />
+          <input value={formData.username} id="username" name="username" type="text" onChange={onChange} placeholder="Type Username" />
           <div className="validation">{message.usernameRequired} </div>
         </div>
 
@@ -79,11 +84,11 @@ export default function App() {
           <fieldset>
             <legend>Favorite Language:</legend>
             <label>
-              <input type="radio" name="favLanguage" value="javascript" />
+              <input type="radio" name="favLanguage" value="javascript" checked={formData.favLanguage === "javascript"} onChange={onChange} />
               JavaScript
             </label>
             <label>
-              <input type="radio" name="favLanguage" value="rust" />
+              <input type="radio" name="favLanguage" value="rust" checked={formData.favLanguage === "rust"} onChange={onChange} />
               Rust
             </label>
           </fieldset>
@@ -92,7 +97,7 @@ export default function App() {
 
         <div className="inputGroup">
           <label htmlFor="favFood">Favorite Food:</label>
-          <select id="favFood" name="favFood">
+          <select value={formData.favFood} onChange={onChange} id="favFood" name="favFood">
             <option value="">-- Select Favorite Food --</option>
             <option value="pizza">Pizza</option>
             <option value="spaghetti">Spaghetti</option>
@@ -103,7 +108,7 @@ export default function App() {
 
         <div className="inputGroup">
           <label>
-            <input id="agreement" type="checkbox" name="agreement" />
+            <input checked={formData.agreement} onChange={onChange} id="agreement" type="checkbox" name="agreement" />
             Agree to our terms
           </label>
           <div className="validation">{message.agreementRequired}</div>
